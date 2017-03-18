@@ -90,7 +90,21 @@ function getMax() {
 	return current.data;
 	// body...
 }
+function find(data){
+	var current=this.root;
+	while(current!=null){
+		if(current.data=data){
+			return current;
+		}
+		else if(data<current.data){
+			current=current.left;
+		}
+		else{current=current.right;}
+	}
 
+	return null;
+
+}
 //////////////////////////////////////////////////////////////////
 var nums = new BST();
 nums.insert(23);
@@ -109,3 +123,13 @@ console.log("============================");
 console.log("the Max data is " + nums.getMax());
 console.log("============================");
 console.log("the Min data is " + nums.getMin());
+print("\n");
+print("Enter the value to search for /n");
+var value=parseInt(readline());
+var found=nums.find(value);
+if(found==null){
+	print(value+" is not be found");
+}else{
+
+	print("The value "+value+" is found in BST" );
+}
