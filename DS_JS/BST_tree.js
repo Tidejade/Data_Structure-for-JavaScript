@@ -6,6 +6,8 @@ function BST(){
 	this.inOrder=inOrder;//inorder search
 	this.preOrder=preOrder;
 	this.postOrder=postOrder;
+	this.getMin=getMin;
+	this.getMax=getMax;
 }
 
 function Node(data,left,right) {
@@ -72,6 +74,24 @@ function postOrder(node){
 	}
 }
 
+function getMin() {
+	// body...
+	var current=this.root;
+	while(!(current.left==null)){
+		current=current.left;
+	}
+	return current.data;
+}
+function getMax() {
+	var current=this.root;
+	while(!(current.right==null)){
+		current=current.right;
+	}
+	return current.data;
+	// body...
+}
+
+//////////////////////////////////////////////////////////////////
 var nums = new BST();
 nums.insert(23);
 nums.insert(45);
@@ -85,3 +105,7 @@ console.log("============================");
 preOrder(nums.root);
 console.log("============================");
 postOrder(nums.root);
+console.log("============================");
+console.log("the Max data is " + nums.getMax());
+console.log("============================");
+console.log("the Min data is " + nums.getMin());
